@@ -55,19 +55,24 @@
             <div id="contenu1">
                 {{message}}
             </div>
+            <div class="page-header">
+                nombre de taches {{taches.length}}
+            </div>
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>libelle</th>
-                        <th>fini</th>
                         <th>date creation</th>    
+                        <th>fini</th>
+                        <th>fini</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="tache in taches">
                         <td>{{tache.libelle}}</td>
-                        <td>{{tache.completed}}</td>
                         <td>{{tache.dateCreated}}</td>
+                        <td><input type="checkbox" ng-model="tache.completed" /></td>
+                        <td>{{tache.completed}}</td>
                     </tr>
             </table>
         </div>

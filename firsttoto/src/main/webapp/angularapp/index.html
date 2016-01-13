@@ -55,6 +55,21 @@
             <div id="contenu1">
                 {{message}}
             </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>libelle</th>
+                        <th>fini</th>
+                        <th>date creation</th>    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="tache in taches">
+                        <td>{{tache.libelle}}</td>
+                        <td>{{tache.completed}}</td>
+                        <td>{{tache.dateCreated}}</td>
+                    </tr>
+            </table>
         </div>
     </div>
    </body>

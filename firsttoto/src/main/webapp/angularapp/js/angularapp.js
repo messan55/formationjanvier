@@ -6,8 +6,14 @@ var todoApp = angular.module("todoApp", []);
 
 // creation d'un controlleur "toDoCtrl" dans notre module
 // le scope est automatiquement injecté par angular
-todoApp.controller("ToDoCtrl", function($scope) {
+todoApp.controller("ToDoCtrl", function($scope, $http) {
    $scope.message = "bonjour depuis controlleur ToDoCtrl"; 
+   $scope.taches = [];
+   
+   $http.get('../rest/tache').then(function (response) {
+       $scope.taches = response.data.taches;
+   });
+   /*
    $scope.taches = [
         {    "category":"sport",
             "completed":false,
@@ -35,7 +41,7 @@ todoApp.controller("ToDoCtrl", function($scope) {
             "id":2,
             "libelle":"passer aspirateur"}
        ];
-   
+   */
    $scope.incompleteCount = function() {
      var count = 0;
      angular.forEach($scope.taches, function(t) {

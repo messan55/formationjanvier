@@ -53,6 +53,7 @@ public class IndexAction extends ActionSupport {
 	}
 	
 	public String save() {
+		log.info("appel de save avec tache " + getTacheLibelle());
 		Tache t = new Tache(getTacheID(), getTacheLibelle(), null, getTacheCompleted(), getTacheCategory());
 		this.tache =  getTacheDAO().save(t);
 		return SUCCESS;

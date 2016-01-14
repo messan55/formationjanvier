@@ -28,7 +28,9 @@
         	</result>
         </action>
         
-        <action name="rest/savetache" class="com.loncoto.firsttoto.actions.IndexAction" method="save">
+        <action name="rest/savetache/*/*" class="com.loncoto.firsttoto.actions.IndexAction" method="save">
+        	<param name="tacheLibelle">{1}</param>
+        	<param name="tacheCategory">{2}</param>
         	<result name="success" type="json">
         		<param name="includeProperties">
         			^tache\.id$,

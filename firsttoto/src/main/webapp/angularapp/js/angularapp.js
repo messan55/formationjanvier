@@ -54,7 +54,17 @@ todoApp.controller("ToDoCtrl", function($scope) {
         return "label-warning";
      }
    };
-   
+   $scope.addNewTask = function(libelle, category) {
+     var tid =   $scope.taches.length + 1;
+     var tdate = "" + new Date();
+     $scope.taches.push({
+       "libelle" : libelle,
+       "category" : category,
+       "completed" : false,
+       "id" : tid,
+       "dateCreated" : tdate 
+     });
+   };
 });
 
 // filter prend en parametre le nom du filtre, et la fonction

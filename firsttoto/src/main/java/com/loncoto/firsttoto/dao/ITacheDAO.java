@@ -7,5 +7,6 @@ import com.loncoto.firsttoto.metier.Tache;
 public interface ITacheDAO {
 	List<Tache> findAll();
 	Tache findByID(int id);
+	Tache save(Tache t);
 	
 }

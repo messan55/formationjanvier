@@ -61,6 +61,19 @@ todoApp.controller("ToDoCtrl", function($scope, $http) {
      }
    };
    $scope.addNewTask = function(libelle, category) {
+     $http.post('../rest/save',
+      { "tacheLibelle" : libelle,
+        "tacheCategory" : category,
+        "tacheCompleted" : false,
+        "tacheID" : 0
+      }).success(function(response) {
+         $scope.taches.push(response.data.tache);
+      });
+   };
+
+   
+   /*
+   $scope.addNewTask = function(libelle, category) {
      var tid =   $scope.taches.length + 1;
      var tdate = "" + new Date();
      $scope.taches.push({
@@ -71,6 +84,7 @@ todoApp.controller("ToDoCtrl", function($scope, $http) {
        "dateCreated" : tdate 
      });
    };
+   */
 });
 
 // filter prend en parametre le nom du filtre, et la fonction

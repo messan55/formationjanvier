@@ -27,6 +27,19 @@
         		</param>
         	</result>
         </action>
+        
+        <action name="rest/savetache" class="com.loncoto.firsttoto.actions.IndexAction" method="save">
+        	<result name="success" type="json">
+        		<param name="includeProperties">
+        			^tache\.id$,
+        			^tache\.libelle$,
+        			^tache\.dateCreated$,
+        			^tache\.completed$,
+        			^tache\.category$
+        		</param>        	
+			</result>        
+        </action>
+        
 
     </package>
 

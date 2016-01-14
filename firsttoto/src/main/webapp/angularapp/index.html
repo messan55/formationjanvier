@@ -55,8 +55,8 @@
             <div id="contenu1">
                 {{message}}
             </div>
-            <div class="page-header">
-                <h1>nombre de taches  <span class="label label-default">{{incompleteCount()}}</span></h1>
+            <div class="page-header" ng-hide="incompleteCount() == 0">
+                <h1>nombre de taches restantes  <span class="label label-default">{{incompleteCount()}}</span></h1>
             </div>
             <table class="table table-striped">
                 <thead>

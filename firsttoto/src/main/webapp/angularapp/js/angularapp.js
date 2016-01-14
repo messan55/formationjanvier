@@ -31,4 +31,14 @@ todoApp.controller("ToDoCtrl", function($scope) {
             "libelle":"passer aspirateur"}
        ];
    
+   $scope.incompleteCount = function() {
+     var count = 0;
+     angular.forEach($scope.taches, function(t) {
+       if (!t.completed) {
+           count++;
+       }  
+     });
+     return count;
+   };
+   
 });

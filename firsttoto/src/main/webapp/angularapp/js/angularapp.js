@@ -9,7 +9,12 @@ var todoApp = angular.module("todoApp", []);
 todoApp.controller("ToDoCtrl", function($scope) {
    $scope.message = "bonjour depuis controlleur ToDoCtrl"; 
    $scope.taches = [
-       {    "category":"developement",
+        {    "category":"sport",
+            "completed":false,
+            "dateCreated":"2016-01-14T00:00:00",
+            "id":5,
+            "libelle":"courrir un semi marathon"},
+        {    "category":"developement",
             "completed":false,
             "dateCreated":"2016-01-13T00:00:00",
             "id":1,

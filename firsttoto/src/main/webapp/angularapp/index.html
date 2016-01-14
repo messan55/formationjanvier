@@ -72,7 +72,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="tache in taches | orderBy:'category'">
+                    <tr ng-repeat="tache in taches | completedTask:showComplete | orderBy:'category'">
                         <td>{{tache.libelle}}</td>
                         <td>{{tache.dateCreated}}</td>
                         <td><input type="checkbox" ng-model="tache.completed" /></td>

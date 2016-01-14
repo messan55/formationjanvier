@@ -56,3 +56,19 @@ todoApp.controller("ToDoCtrl", function($scope) {
    };
    
 });
+
+// filter prend en parametre le nom du filtre, et la fonction
+// "factory" fabrique de la fonction filtre
+todoApp.filter("completedTask", function() {
+    // 2 parametre , la collection sur laquelle on travaille
+    // un parametrage du filtre (ici un bolean pour determiner le filtrage)
+   return function (items, showComplete) {
+       var resultItems = [];
+       angular.forEach(items, function(item) {
+          if (item.completed == false || showComplete == true) {
+              resultItems.push(item);
+          }
+       });
+       return resultItems;
+   };
+});

@@ -41,4 +41,13 @@ todoApp.controller("ToDoCtrl", function($scope) {
      return count;
    };
    
+   $scope.warningLevel = function() {
+     if ($scope.incompleteCount() < 3 ) {
+        return "label-success";  
+     }
+     else {
+        return "label-warning";
+     }
+   };
+   
 });

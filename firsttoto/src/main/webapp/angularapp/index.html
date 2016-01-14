@@ -56,7 +56,11 @@
                 {{message}}
             </div>
             <div class="page-header" ng-hide="incompleteCount() == 0">
-                <h1>nombre de taches restantes  <span class="label label-default">{{incompleteCount()}}</span></h1>
+                <h1>nombre de taches restantes 
+                    <span class="label label-default" ng-class="warningLevel()">
+                        {{incompleteCount()}}
+                    </span>
+                </h1>
             </div>
             <table class="table table-striped">
                 <thead>

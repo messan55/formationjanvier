@@ -60,13 +60,20 @@ todoApp.controller("ToDoCtrl", function($scope, $http) {
         return "label-warning";
      }
    };
+   // appelé quand le formulaire est soumis (click bouton)
+   // on recoit le libelle de la tache a cree, et sa categorie
    $scope.addNewTask = function(libelle, category) {
-     $http.post('../rest/save',
-      { "tacheLibelle" : libelle,
+     // j'envoie une requette POST pour demander au serveur de creer la tache en BDD
+     $http.post('../rest/save', /* cette tache sera cree avec les parametres ci dessous*/ 
+      { "tacheLibelle" : libelle,  // ces parametres correspondes au getter/setter dans l'action struts
         "tacheCategory" : category,
-        "tacheCompleted" : false,
+        "tacheCompleted" : false,  // par defaut, cette tache sera en cours et avec un id 0
         "tacheID" : 0
       }).success(function(response) {
+          // cette fonction est rappellée quand le serveur renvoie sa réponse
+          // le serveur nous renvoie la tache inséré sous format JSON
+          // angular deserialise le json dans response.data
+          // nous ajoutons la tache insérée dans le tableau des taches du scope
          $scope.taches.push(response.data.tache);
       });
    };

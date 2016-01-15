@@ -27,7 +27,23 @@
         		</param>
         	</result>
         </action>
+        <action name="rest/productSave" class="com.loncoto.correc_exo1.actions.IndexAction" method="save">
+        	<interceptor-ref name="defaultStack" />
+        	<interceptor-ref name="json" />
+        	<result name="success" type="json">
+        		<param name="includeProperties">
+        			^produit\.id$,
+        			^produit\.nom$,
+        			^produit\.prix$,
+        			^produit\.categorie$,
+        			^produit\.stock$
+        		</param>
+        	</result>
+        </action>
+        
     </package>
+    
+    
 
     <!-- Add addition packages and configuration here. -->
 </struts>

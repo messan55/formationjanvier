@@ -1,0 +1,19 @@
+           <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>categorie</th>
+                        <th>nom</th>    
+                        <th>prix</th>
+                        <th>stock</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="produit in produits | orderBy:'categorie'">
+                        <td>{{produit.categorie}}</td>
+                        <td>{{produit.nom}}</td>
+                        <td>{{produit.prix}}</td>
+                        <td>{{produit.stock}}</td>
+                        <td><button class="btn btn-warning" >delete</button></td>
+                    </tr>
+            </table>

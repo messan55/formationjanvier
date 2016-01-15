@@ -47,27 +47,13 @@
     </nav>
 
     <div class="container theme-showcase" role="main">
-        <div class="col-md-12"  >
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>categorie</th>
-                        <th>nom</th>    
-                        <th>prix</th>
-                        <th>stock</th>
-                        <th>actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="produit in produits | orderBy:'categorie'">
-                        <td>{{produit.categorie}}</td>
-                        <td>{{produit.nom}}</td>
-                        <td>{{produit.prix}}</td>
-                        <td>{{produit.stock}}</td>
-                        <td><button class="btn btn-warning" >delete</button></td>
-                    </tr>
-            </table>
+        <div class="col-md-2" >
+            <button id="bouton1" type="button" class="btn btn-primary" ng-click="navigateTo('edition')">Creer Produit</button><br />
+            <button id="bouton2" type="button" class="btn btn-primary" ng-click="navigateTo('liste')">Liste Produit</button><br />
         </div>
+        <div class="col-md-10" ng-include="'views/productsList.html'"  >
+        </div>
+       <!-- <ng-include src="'views/productsList2.html'"></ng-include> -->
     </div>
    </body>
 </html>

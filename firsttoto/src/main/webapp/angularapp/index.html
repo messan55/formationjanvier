@@ -67,7 +67,7 @@
                 <label>categorie</label><input type="text" class="form-control" ng-model="tacheCategory" />
                 <span class="input-group-btn">
                     <button class="btn btn-default"
-                            ng-click="addNewTask(tacheLibelle, tacheCategory)">
+                            ng-click="addNewTask2(tacheLibelle, tacheCategory)">
                             Add task
                     </button>
                 </span>
@@ -87,6 +87,7 @@
                         <td>{{tache.dateCreated}}</td>
                         <td><input type="checkbox" ng-model="tache.completed" /></td>
                         <td>{{tache.completed}}</td>
+                        <td><button class="btn btn-default" ng-click="deleteTask(tache.id)" >delete</button></td>
                     </tr>
             </table>
             <div class="checkbox-inline">

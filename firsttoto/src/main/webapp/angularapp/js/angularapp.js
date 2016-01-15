@@ -73,6 +73,22 @@ todoApp.controller("ToDoCtrl", function($scope, $http) {
          $scope.taches.push(response.tache);
       }); 
    };
+   $scope.deleteTask = function(id) {
+       console.log("delete taks no " + id);
+   };
+
+   $scope.addNewTask2 = function(libelle, category) {
+     // j'envoie une requette POST pour demander au serveur de creer la tache en BDD
+     $http.post('../rest/savetache2', {"tacheLibelle": libelle, "tacheCategory" : category} 
+      ).success(function(response) {
+          // cette fonction est rappellée quand le serveur renvoie sa réponse
+          // le serveur nous renvoie la tache inséré sous format JSON
+          // angular deserialise le json dans response.data
+          // nous ajoutons la tache insérée dans le tableau des taches du scope
+         $scope.taches.push(response.tache);
+      }); 
+   };
+
 
    
    /*

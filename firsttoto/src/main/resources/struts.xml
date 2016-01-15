@@ -8,7 +8,7 @@
 	<constant name="struts.action.extension" value=","/>
     <constant name="struts.enable.SlashesInActionNames" value="true" />
     <!-- caracteres autorisés pour les urls/action sous forme d'une regex -->
-    <constant name="struts.allowed.action.names" value="[ a-zA-Z0-9._!/\-]*" />
+    <constant name="struts.allowed.action.names" value="[ a-zA-Z0-9._!/\éèà'-]*" />
 
     <package name="default" namespace="/" extends="json-default">
 
@@ -45,6 +45,19 @@
 			</result>        
         </action>
         
+        <action name="rest/savetache2" class="com.loncoto.firsttoto.actions.IndexAction" method="save">
+        	<interceptor-ref name="defaultStack" />
+        	<interceptor-ref name="json" />
+        	<result name="success" type="json">
+        		<param name="includeProperties">
+        			^tache\.id$,
+        			^tache\.libelle$,
+        			^tache\.dateCreated$,
+        			^tache\.completed$,
+        			^tache\.category$
+        		</param>        	
+			</result>        
+        </action>
 
     </package>
 

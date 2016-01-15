@@ -13,6 +13,8 @@
         </script>
         <script type="text/javascript" src="js/productController.js">
         </script>
+        <script type="text/javascript" src="js/storeDirectives.js">
+        </script>
 
     </head>
    <body ng-controller="StoreCtrl">
@@ -51,6 +53,7 @@
 
     <div class="container theme-showcase" role="main">
         <div class="col-md-2" >
+            <productsCount />
             <button id="bouton1" type="button" class="btn btn-primary" ng-click="navigateTo('views/editProduct.html')">Creer Produit</button><br />
             <button id="bouton2" type="button" class="btn btn-primary" ng-click="navigateTo('views/productsList.html')">Liste Produit</button><br />
         </div>

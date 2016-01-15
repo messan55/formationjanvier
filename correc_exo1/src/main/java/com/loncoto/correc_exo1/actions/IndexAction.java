@@ -23,7 +23,7 @@ public class IndexAction extends ActionSupport {
 	private String produitNom;
 	private double produitPrix;
 	private String produitCategorie;
-	private String produitStock;
+	private int produitStock;
 	
 	public int getProduitID() {return produitID;}
 	public void setProduitID(int produitID) {this.produitID = produitID;}
@@ -33,8 +33,8 @@ public class IndexAction extends ActionSupport {
 	public void setProduitPrix(double produitPrix) {this.produitPrix = produitPrix;}
 	public String getProduitCategorie() {return produitCategorie;}
 	public void setProduitCategorie(String produitCategorie) {this.produitCategorie = produitCategorie;}
-	public String getProduitStock() {return produitStock;}
-	public void setProduitStock(String produitStock) {this.produitStock = produitStock;}
+	public int getProduitStock() {return produitStock;}
+	public void setProduitStock(int produitStock) {this.produitStock = produitStock;}
 	
 	private Produit produit;
 	public Produit getProduit() {return produit;}
@@ -52,6 +52,11 @@ public class IndexAction extends ActionSupport {
 	
 	public String save() {
 		log.info("nom produit = " + getProduitNom());
+		this.produit = produitDAO.save(new Produit(getProduitID(),
+													getProduitNom(),
+													getProduitPrix(),
+													getProduitCategorie(),
+													getProduitStock()));
 		return SUCCESS;
 	}
 	

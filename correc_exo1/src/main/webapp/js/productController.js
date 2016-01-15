@@ -11,6 +11,7 @@ angular.module("productsModule", [])
                       "produitID" : product.ID
                   }
                  ).then(function(response){
+                    $scope.produits.push(response.data.produit); 
                     $scope.navigateTo('views/productsList.html');
                 });
 

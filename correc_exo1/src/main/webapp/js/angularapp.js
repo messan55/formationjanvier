@@ -2,11 +2,11 @@
 // cette ligne creer un nouveau module angular
 // le tableau en deuxieme argument contient les
 // dépendances a injecter dans ce module
-var todoApp = angular.module("storeApp", []);
+var storeApp = angular.module("storeApp", ['productsModule']);
 
 // creation d'un controlleur "toDoCtrl" dans notre module
 // le scope est automatiquement injecté par angular
-todoApp.controller("StoreCtrl", function($scope, $http) {
+storeApp.controller("StoreCtrl", function($scope, $http) {
    $scope.produits = [];
    $scope.currentView = 'views/productsList.html';
    
@@ -18,8 +18,5 @@ todoApp.controller("StoreCtrl", function($scope, $http) {
        $scope.currentView = view;
    };
  
-   $scope.addProduct = function (product) {
-       console.log(product.nom + " - " + product.prix);
-       $scope.navigateTo('views/productsList.html'); 
-   };
+   
 });

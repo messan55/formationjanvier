@@ -1,18 +1,18 @@
-<html ng-app="todoApp">
+<html ng-app="storeApp">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
         <title>page de test</title>
         <link  type="text/css" rel="stylesheet" href="css/bootstrap.css" />
         <link  type="text/css" rel="stylesheet" href="css/bootstrap-theme" />        
         <link  type="text/css" rel="stylesheet" href="css/styleapp.css" />
-        <script type="text/javascript" src="../js/jquery-2.2.0.js">
+        <script type="text/javascript" src="js/jquery-2.2.0.js">
         </script>
-        <script type="text/javascript" src="../js/angular.js">
+        <script type="text/javascript" src="js/angular.js">
         </script>      
         <script type="text/javascript" src="js/angularapp.js">
         </script>
     </head>
-   <body>
+   <body ng-controller="StoreCtrl">
    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -47,52 +47,26 @@
     </nav>
 
     <div class="container theme-showcase" role="main">
-        <div class="col-md-4">
-            <button id="bouton1" type="button" class="btn btn-primary">GET JSON</button><br />
-            <button id="bouton2" type="button" class="btn btn-primary">GET HTML</button><br />
-        </div>
-        <div class="col-md-8" ng-controller="ToDoCtrl" >
-            <div id="contenu1">
-                {{message}}
-            </div>
-            <div class="page-header" ng-hide="incompleteCount() == 0">
-                <h1>nombre de taches restantes 
-                    <span class="label label-default" ng-class="warningLevel()">
-                        {{incompleteCount()}}
-                    </span>
-                </h1>
-            </div>
-            <div>
-                <label>libelle</label><input type="text" class="form-control" ng-model="tacheLibelle" />
-                <label>categorie</label><input type="text" class="form-control" ng-model="tacheCategory" />
-                <span class="input-group-btn">
-                    <button class="btn btn-default"
-                            ng-click="addNewTask2(tacheLibelle, tacheCategory)">
-                            Add task
-                    </button>
-                </span>
-            </div>
+        <div class="col-md-12"  >
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>libelle</th>
-                        <th>date creation</th>    
-                        <th>fini</th>
-                        <th>fini</th>
+                        <th>categorie</th>
+                        <th>nom</th>    
+                        <th>prix</th>
+                        <th>stock</th>
+                        <th>actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="tache in taches | completedTask:showComplete | orderBy:'category'">
-                        <td>{{tache.libelle}}</td>
-                        <td>{{tache.dateCreated}}</td>
-                        <td><input type="checkbox" ng-model="tache.completed" /></td>
-                        <td>{{tache.completed}}</td>
-                        <td><button class="btn btn-default" ng-click="deleteTask(tache.id)" >delete</button></td>
+                    <tr ng-repeat="produit in produits | orderBy:'categorie'">
+                        <td>{{produit.categorie}}</td>
+                        <td>{{produit.nom}}</td>
+                        <td>{{produit.prix}}</td>
+                        <td>{{produit.stock}}</td>
+                        <td><button class="btn btn-warning" >delete</button></td>
                     </tr>
             </table>
-            <div class="checkbox-inline">
-                <label><input type="checkbox" ng-model="showComplete" /> Show Completed</label>
-            </div>
         </div>
     </div>
    </body>

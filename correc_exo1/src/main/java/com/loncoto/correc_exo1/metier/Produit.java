@@ -1,5 +1,10 @@
 package com.loncoto.correc_exo1.metier;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Produit implements IGenericEntity {
 
 	private int id;
@@ -15,6 +20,7 @@ public class Produit implements IGenericEntity {
 		this.categorie = categorie;
 	}
 
+	@Id @GeneratedValue
 	public int getId() {
 		return id;
 	}

@@ -48,4 +48,6 @@
 
 <tx:annotation-driven transaction-manager="transactionManager" />
 
+<bean id="produitDAO" class="com.loncoto.correc_exo1.dao.ProduitDAO" />
+
 </beans>

@@ -5,8 +5,16 @@ public class Produit implements IGenericEntity {
 	private int id;
 	private String nom;
 	private double prix;
+	private String categorie;
 	private int stock;
-	
+
+	public String getCategorie() {
+		return categorie;
+	}
+	public void setCategorie(String categorie) {
+		this.categorie = categorie;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -33,12 +41,13 @@ public class Produit implements IGenericEntity {
 	}
 
 	
-	public Produit() {this(0, "", 0.0, 0); }
-	public Produit(int id, String nom, double prix, int stock) {
+	public Produit() {this(0, "", 0.0,"", 0); }
+	public Produit(int id, String nom, double prix, String categorie, int stock) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prix = prix;
+		this.categorie = categorie;
 		this.stock = stock;
 	}
 	

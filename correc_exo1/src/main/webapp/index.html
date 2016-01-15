@@ -1,10 +1,99 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-<head>
-    <META HTTP-EQUIV="Refresh" CONTENT="0;URL=index">
-</head>
+<html ng-app="todoApp">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
+        <title>page de test</title>
+        <link  type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+        <link  type="text/css" rel="stylesheet" href="css/bootstrap-theme" />        
+        <link  type="text/css" rel="stylesheet" href="css/styleapp.css" />
+        <script type="text/javascript" src="../js/jquery-2.2.0.js">
+        </script>
+        <script type="text/javascript" src="../js/angular.js">
+        </script>      
+        <script type="text/javascript" src="js/angularapp.js">
+        </script>
+    </head>
+   <body>
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Bootstrap theme</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 
-<body>
-<p>Loading ...</p>
-</body>
+    <div class="container theme-showcase" role="main">
+        <div class="col-md-4">
+            <button id="bouton1" type="button" class="btn btn-primary">GET JSON</button><br />
+            <button id="bouton2" type="button" class="btn btn-primary">GET HTML</button><br />
+        </div>
+        <div class="col-md-8" ng-controller="ToDoCtrl" >
+            <div id="contenu1">
+                {{message}}
+            </div>
+            <div class="page-header" ng-hide="incompleteCount() == 0">
+                <h1>nombre de taches restantes 
+                    <span class="label label-default" ng-class="warningLevel()">
+                        {{incompleteCount()}}
+                    </span>
+                </h1>
+            </div>
+            <div>
+                <label>libelle</label><input type="text" class="form-control" ng-model="tacheLibelle" />
+                <label>categorie</label><input type="text" class="form-control" ng-model="tacheCategory" />
+                <span class="input-group-btn">
+                    <button class="btn btn-default"
+                            ng-click="addNewTask2(tacheLibelle, tacheCategory)">
+                            Add task
+                    </button>
+                </span>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>libelle</th>
+                        <th>date creation</th>    
+                        <th>fini</th>
+                        <th>fini</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="tache in taches | completedTask:showComplete | orderBy:'category'">
+                        <td>{{tache.libelle}}</td>
+                        <td>{{tache.dateCreated}}</td>
+                        <td><input type="checkbox" ng-model="tache.completed" /></td>
+                        <td>{{tache.completed}}</td>
+                        <td><button class="btn btn-default" ng-click="deleteTask(tache.id)" >delete</button></td>
+                    </tr>
+            </table>
+            <div class="checkbox-inline">
+                <label><input type="checkbox" ng-model="showComplete" /> Show Completed</label>
+            </div>
+        </div>
+    </div>
+   </body>
 </html>

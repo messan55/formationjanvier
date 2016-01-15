@@ -10,12 +10,18 @@
 
     <package name="default" namespace="/" extends="json-default">
 
-        <default-action-ref name="index"/>
-
-        <action name="index" class="com.loncoto.correc_exo1.actions.IndexAction" method="index" >
-            <result name="success">/index.jsp</result>
+  
+ 		<action name="rest/produit" class="com.loncoto.correc_exo1.actions.IndexAction" method="index">
+        	<result name="success" type="json">
+        		<param name="includeProperties">
+        			^produits\[\d\]\.id$,
+        			^produits\[\d\]\.nom$,
+        			^produits\[\d\]\.prix$,
+        			^produits\[\d\]\.categorie$,
+        			^produits\[\d\]\.stock$
+        		</param>
+        	</result>
         </action>
-
     </package>
 
     <!-- Add addition packages and configuration here. -->

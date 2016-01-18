@@ -48,4 +48,6 @@
 
 <tx:annotation-driven transaction-manager="transactionManager" />
 
+<bean id="imageDAO" class="com.loncoto.angularupload.dao.ImageDAO" />
+
 </beans>

@@ -14,7 +14,19 @@ app.controller('assetCtrl', ['$scope', 'Upload', '$timeout', function($scope, Up
     });
     
     $scope.uploadImage = function(file) {
-        
+        if (!file.$error) {
+            Upload.upload({
+                url : 'uploadImage',
+                data : {
+                    file: file
+                }
+            }).progress(function(evt) {
+                var percent = parseInt(100.0 * evt.loaded / evt.total);
+                console.log("progression = " + percent + " % pour " + evt.config.data.file.name);
+            }).success(function (data, status, headers, config) {
+               console.log("upload réussi, reponse = " + JSON.stringify(data)); 
+            });
+        }
     };
     
 }]);

@@ -22,7 +22,7 @@ app.controller('assetCtrl', ['$scope', 'Upload', '$timeout', function($scope, Up
                 }
             }).progress(function(evt) {
                 var percent = parseInt(100.0 * evt.loaded / evt.total);
-                console.log("progression = " + percent + " % pour " + evt.config.data.file.name);
+                console.log("progression = " + percent + " % pour " + evt.config.data.upload.name);
             }).success(function (data, status, headers, config) {
                console.log("upload réussi, reponse = " + JSON.stringify(data)); 
             });

@@ -42,8 +42,12 @@ public class IndexAction extends ActionSupport {
 		log.info("reception upload: content type = " + uploadContentType);
 		log.info("reception upload: FileName = " + uploadFileName);
 		log.info("reception upload: file = " + upload.getAbsolutePath());
+		// j'instancie une entite image correspondant aux informations du fichier uploadé
 		this.img = new Image(0, uploadFileName, new Date(), uploadFileName, uploadContentType);
+		// j'insére cet entité dans la base de donnée
 		this.img = getImageDAO().save(this.img);
+		// je copie le fichier temporaire correspondant sous le bon nom (c.a.d avec l'identifiant de l'entité insérée)
+		// via le fileStoreManager du DAO
 		getImageDAO().saveImageFile(img.getId(), upload);
 		return SUCCESS;
 	}

@@ -4,6 +4,8 @@ angular.module("storeDirectives", [])
              restrict: "E",
              templateUrl: "components/productCount.html",
              controller: function($scope) {
+                 $scope.testvalue = "bonjour";
+                 
                  //console.log("demarrage scope directive");
                  $scope.inStockProducts = function() {
                      var count = 0;

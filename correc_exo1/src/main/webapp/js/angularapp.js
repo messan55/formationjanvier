@@ -9,7 +9,7 @@ var storeApp = angular.module("storeApp", ['productsModule', 'storeDirectives'])
 storeApp.controller("StoreCtrl", function($scope, $http) {
    $scope.produits = [];
    $scope.currentView = 'views/productsList.html';
-   
+   $scope.testvalue = "bienvenue";
    $http.get('rest/produit').then(function (response) {
        $scope.produits = response.data.produits;
    });

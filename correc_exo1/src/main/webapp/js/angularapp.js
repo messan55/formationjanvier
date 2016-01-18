@@ -7,13 +7,13 @@ var storeApp = angular.module("storeApp", ['productsModule', 'storeDirectives', 
 
 storeApp.config(function($routeProvider) {
    $routeProvider.when("/products", {
-      templateUrl: "/views/products.html" 
+      templateUrl: "views/products.html" 
    });
    $routeProvider.when("/admin", {
-       templateUrl: "/views/admin.html"
+       templateUrl: "views/admin.html"
    });
    $routeProvider.otherwise( {
-      templateUrl: "/views/products.html" 
+      templateUrl: "views/products.html" 
    });
     
 });

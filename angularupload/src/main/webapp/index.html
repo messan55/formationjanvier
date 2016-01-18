@@ -1,9 +1,9 @@
-<html ng-app="storeApp">
+<html ng-app="assetApp">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
         <title>page de test</title>
         <link  type="text/css" rel="stylesheet" href="css/bootstrap.css" />
-        <link  type="text/css" rel="stylesheet" href="css/bootstrap-theme" />        
+        <link  type="text/css" rel="stylesheet" href="css/bootstrap-theme.css" />        
         <link  type="text/css" rel="stylesheet" href="css/styleapp.css" />
         <script type="text/javascript" src="js/jquery-2.2.0.js">
         </script>
@@ -11,9 +11,12 @@
         </script>      
         <script type="text/javascript" src="js/angular-route.js">
         </script>              
-
+        <script type="text/javascript" src="js/ng-file-upload.js">
+        </script>
+        <script type="text/javascript" src="js/assetApp.js">
+        </script>
     </head>
-   <body ng-controller="StoreCtrl">
+   <body ng-controller="assetCtrl">
    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -30,23 +33,17 @@
             <li class="active"><a href="#/products">products</a></li>
             <li><a href="#/admin">Admin</a></li>
             <li><a href="#/contact">Contact</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-
- 
+    <h3>ajax image upload</h3>
+    Drop Image:
+    <div ngf-drop ngf-select ng-model="files" class="drop-box"
+        ngf-drag-over-class="'dragover'" ngf-multiple="true" 
+        accept="image/*,application/pdf" ngf-pattern="'image/*,application/pdf'">
+        Drop your images or pdf HERE
+    </div>
+    <div ngf-no-file-drop> file drag and drop not supported</div>
    </body>
 </html>

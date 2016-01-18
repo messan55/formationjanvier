@@ -20,6 +20,13 @@
         
         <action name="uploadImage" class="com.loncoto.angularupload.actions.IndexAction" method="uploadImage" >
             <result name="success" type="json">
+            	<param name="includeProperties">
+            		^img\.id$,
+            		^img\.name$,
+            		^img\.dateCreated$,
+            		^img\.fileName$,
+            		^img\.contentType$
+            	</param>
 			</result>
         </action>
        

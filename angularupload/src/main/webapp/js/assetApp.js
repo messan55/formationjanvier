@@ -4,10 +4,17 @@ app.controller('assetCtrl', ['$scope', 'Upload', '$timeout', function($scope, Up
     // je surveille la variable files du scope
     // le callback sera rappelé a sa mise à jour
     $scope.$watch('files', function() {
-        console.log($scope.files.length);
-        for (var idx in $scope.files) {
-            console.log($scope.files[idx].name);
+        if ($scope.files && $scope.files.length > 0) {
+            console.log($scope.files.length);
+            for (var idx in $scope.files) {
+                console.log($scope.files[idx].name);
+                $scope.uploadImage(files[0]);
+            }
         }
     });
+    
+    $scope.uploadImage = function(file) {
+        
+    };
     
 }]);

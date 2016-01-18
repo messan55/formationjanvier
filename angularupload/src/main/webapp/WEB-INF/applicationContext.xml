@@ -49,7 +49,7 @@
 <tx:annotation-driven transaction-manager="transactionManager" />
 
 <bean id="fileStoreManager" class="com.loncoto.angularupload.utils.FileStoreManager">
-	<property name="strorageRoot" value="c:\assets" />
+	<property name="storageRoot" value="c:\assets" />
 </bean>
 
 <bean id="imageDAO" class="com.loncoto.angularupload.dao.ImageDAO" />

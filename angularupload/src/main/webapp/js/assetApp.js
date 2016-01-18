@@ -1,6 +1,6 @@
 var app = angular.module('assetApp', ['ngFileUpload']);
 
-app.controller('imageCtrl', ['$scope', 'Upload', '$timeout', function($scope, Upload, $timeout) {
+app.controller('assetCtrl', ['$scope', 'Upload', '$timeout', function($scope, Upload, $timeout) {
     // je surveille la variable files du scope
     // le callback sera rappelé a sa mise à jour
     $scope.$watch('files', function() {

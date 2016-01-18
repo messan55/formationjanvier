@@ -8,7 +8,7 @@ app.controller('assetCtrl', ['$scope', 'Upload', '$timeout', function($scope, Up
             console.log($scope.files.length);
             for (var idx in $scope.files) {
                 console.log($scope.files[idx].name);
-                $scope.uploadImage(files[0]);
+                $scope.uploadImage($scope.files[0]);
             }
         }
     });
@@ -18,7 +18,7 @@ app.controller('assetCtrl', ['$scope', 'Upload', '$timeout', function($scope, Up
             Upload.upload({
                 url : 'uploadImage',
                 data : {
-                    file: file
+                    upload: file
                 }
             }).progress(function(evt) {
                 var percent = parseInt(100.0 * evt.loaded / evt.total);

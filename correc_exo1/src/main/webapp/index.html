@@ -9,6 +9,8 @@
         </script>
         <script type="text/javascript" src="js/angular.js">
         </script>      
+        <script type="text/javascript" src="js/angular-route.js">
+        </script>              
         <script type="text/javascript" src="js/angularapp.js">
         </script>
         <script type="text/javascript" src="js/productController.js">
@@ -31,9 +33,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="active"><a href="#/products">products</a></li>
+            <li><a href="#/admin">Admin</a></li>
+            <li><a href="#/contact">Contact</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -50,15 +52,8 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-
-    <div class="container theme-showcase" role="main">
-        <div class="col-md-2" >
-            <button id="bouton1" type="button" class="btn btn-primary" ng-click="navigateTo('views/editProduct.html')">Creer Produit</button><br />
-            <button id="bouton2" type="button" class="btn btn-primary" ng-click="navigateTo('views/productsList.html')">Liste Produit</button><br />
-        </div>
-        <div class="col-md-10" ng-include="currentView"  >
-        </div>
-       <!-- <ng-include src="'views/productsList2.html'"></ng-include> -->
-    </div>
+    
+    <ng-view />
+ 
    </body>
 </html>

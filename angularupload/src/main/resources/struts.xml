@@ -7,6 +7,8 @@
     <constant name="struts.devMode" value="true"/>
 	<constant name="struts.action.extension" value=","/>
     <constant name="struts.enable.SlashesInActionNames" value="true" />
+    <!-- determine la taille maximum autorisé pour les requettes multipart, c.a.d d'upload fichier-->
+    <constant name="struts.multipart.maxSize" value="100000000" />
 
     <package name="default" namespace="/" extends="json-default">
 
@@ -15,6 +17,12 @@
         <action name="index" class="com.loncoto.angularupload.actions.IndexAction" method="index" >
             <result name="success">/index.jsp</result>
         </action>
+        
+        <action name="uploadImage" class="com.loncoto.angularupload.actions.IndexAction" method="uploadImage" >
+            <result name="success" type="json">
+			</result>
+        </action>
+       
 
     </package>
 

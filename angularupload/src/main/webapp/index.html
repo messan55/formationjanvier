@@ -39,11 +39,13 @@
     </nav>
     <h3>ajax image upload</h3>
     Drop Image:
+    <!-- zone ou les fichiers seront droppés-->
     <div ngf-drop ngf-select ng-model="files" class="drop-box"
         ngf-drag-over-class="'dragover'" ngf-multiple="true" 
         accept="image/*,application/pdf" ngf-pattern="'image/*,application/pdf'">
         Drop your images or pdf HERE
     </div>
+    <!-- cette balise n'est visible que si le drag/drop n'est pas supporté -->
     <div ngf-no-file-drop> file drag and drop not supported</div>
    </body>
 </html>

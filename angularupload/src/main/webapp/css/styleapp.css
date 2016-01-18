@@ -17,7 +17,15 @@ body {
   width: auto;
 }
 
-div#contenu1 {
-    border: black solid 1px;
-    background-color: lightblue;
+.drop-box {
+  background: #E8E8E8;
+  border: 5px dashed #DDD;
+  width: 200px;
+  height: 70px;
+  text-align: center;
+  padding-top: 25 px;
+  margin: 10px;  
+}
+.dragover {
+    border: 5px dashed blue;
 }
